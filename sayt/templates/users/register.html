@@ -1,0 +1,29 @@
+{% extends 'sayt/ekologiya.html' %}
+{% block title %} {{ title }} {% endblock %}
+{% block header %} {% include 'sayt/blocks/header.html' %} {% endblock %}
+{% block menyu %} {% include 'sayt/blocks/menyu.html' %} {% endblock %}
+{% block left %} {% include 'sayt/blocks/left.html' %} {% endblock %}
+{% block content %}
+
+<form class="mt-5" action="{% url 'register' %}" method="POST">
+    {% csrf_token %}
+    <table>
+        {% for f in form %}
+        <tr>
+            <td>{{f.label}}</td>
+            <td>{{f}}</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>{{f.help_text}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <input type="submit" value="Ro'yxatdan o'tish">
+</form>
+
+
+
+{% endblock %}
+{% block right %} {% include 'sayt/blocks/right.html' %} {% endblock %}
+{% block footer %} {% include 'sayt/blocks/footer.html' %} {% endblock %}

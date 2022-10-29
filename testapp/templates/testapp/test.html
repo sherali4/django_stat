@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Hello wold!</h1>
+{% load mptt_tags %}
+<ul>
+    {% recursetree rubrics %}
+        <li>
+            <a href="{{ node.get_absolute_url }}">{{ node.name }}</a>
+            {% if not node.is_leaf_node %}
+                <ul class="children">
+                    {{ children }}
+                </ul>
+            {% endif %}
+        </li>
+    {% endrecursetree %}
+</ul>
+
+
+<hr>
+
+</body>
+</html>

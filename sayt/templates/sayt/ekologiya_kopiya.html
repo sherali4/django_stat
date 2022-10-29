@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+	<meta charset="UTF-8">
+	<link rel="shortcut icon" type="image/x-icon" href="{% static 'logo.ico' %}">
+	<script type="text/javascript" src="{% static 'js/jquery.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/menu.js' %}"></script>
+	<title>{% block title %} Sarlavha {% endblock %}</title>
+</head>
+<body>
+	<div class="container">
+		<div class="row">{% include 'project/blocks/header.html' %}</div>
+			{% include 'project/blocks/menyu.html' %}
+			<div class="row">
+			{% include 'project/blocks/left.html' %}
+				<div class="col-6">{% block content %} CONTENT {% endblock %}</div>
+			{% include 'project/blocks/right.html' %}
+			</div>
+		<div class="row">{% include 'project/blocks/footer.html' %}</div>
+	</div>
+	 <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+{% extends 'sayt/ekologiya.html' %}
+{% block title %} {{ title }} {% endblock %}
+{% load static %}
+{% block header %} {% include 'sayt/blocks/header.html' %} {% endblock %}
+{% block menyu %} {% include 'sayt/blocks/menyu.html' %} {% endblock %}
+{% block left %} {% include 'sayt/blocks/left.html' %} {% endblock %}
+{% block content %}
+
+<h1 class="text-center">{{title}}</h1>
+
+   {% for item in news %}
+<div class="card-group">
+    <div class="card mb-3">
+        <div class="card-header bg-primary text-white">Kategoriyasi: {{ item.category }}</div>
+
+    <div class="card-body">
+        <div class="media">
+            {% if item.photo %}
+            <img src="{{ item.photo.url }}" class="img-fluid card-img-top img-thumbnail rounded float-left" alt="..." width="150px">
+            {% else %}
+            <img src="{% static 'stat/noimg.jpg' %}" class="img-fluid card-img-top img-thumbnail rounded float-left" alt="..." width="150px">
+            {% endif %}
+        </div>
+        <h5 class="card-title">{{ item.title }}</h5>
+      <p class="card-text">
+        <div>
+            <p>{{ item.content }}</p>
+        </div>
+
+        <a href="{{ item.get_absolute_url }}" class="btn btn-primary">Read more...</a>
+    </div>
+         <div class="card-footer bg-secondary text-white"><small class="text-white">Created at {{ item.created_at|date:"H:i d.m.Y" }}</small>
+  </div>
+    </div>
+    </div>
+    {% endfor %}
+
+
+
+bu kontent {% endblock %}
+{% block right %} {% include 'sayt/blocks/right.html' %} {% endblock %}
+{% block footer %} {% include 'sayt/blocks/footer.html' %} {% endblock %}

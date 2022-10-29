@@ -1,0 +1,18 @@
+{% extends 'sayt/ekologiya.html' %}
+{% block title %} {{ news_item.title }} :: {{ block.super }} {% endblock %}
+{% block header %} {% include 'sayt/blocks/header.html' %} {% endblock %}
+{% block menyu %} {% include 'sayt/blocks/menyu.html' %} {% endblock %}
+{% block left %} {%comment%} {% include 'sayt/blocks/left.html' %}{%endcomment%}{% include 'inc/_sidebar.html' %} {% endblock %}
+{% block content %}
+
+<h1 class="text-center">Yangilik kiritish</h1>
+
+<form action="{% url 'add_news' %}" method="post" enctype="multipart/form-data">
+     {% csrf_token %}
+    {{form.as_p}}
+    <button type="submit" class="btn btn-primary btn-block">Yaratish</button>
+</form>
+
+{% endblock %}
+{% block right %} {% include 'sayt/blocks/right.html' %} {% endblock %}
+{% block footer %} {% include 'sayt/blocks/footer.html' %} {% endblock %}

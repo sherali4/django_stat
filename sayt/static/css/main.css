@@ -1,0 +1,194 @@
+@charset "utf-8";
+.header-h1
+{
+	vertical-align: middle;
+}
+
+.navbar
+{
+/*	background:#035afc;*/
+}
+.nav-link, .navbar-brand 
+{
+	color: #f4f4f4;
+	cursor: pointer;
+}
+.nav-link{
+	margin-right: 1em !important;
+}
+.nav-link:hover{
+	background: #f4f4f4;
+	color: #F97300;
+}
+.nav-collapse{
+	justify-content: flex-end;	
+}
+.navbar-toggler{
+	background: #fff !important;
+}
+/* CSS */
+/* Добавление отступов к элементу с классом timeline */
+.timeline {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  position: relative;
+}
+/* Создание вертикальной линии с помощью псевдоэлеметна */
+.timeline::before {
+  content: "";
+  position: absolute;
+  width: .125rem;
+  height: 100%;
+  background-color: #dee2e6;
+  left: 2rem;
+  top: 0;
+}
+/* добавление нижнего отступа и левого поля для элементов с классом timeline-wrapper */
+.timeline-wrapper {
+  margin-bottom: 1rem;
+  padding-left: 4rem;
+}
+/* убирание у последнего элемента .timeline-wrapper нижнего отступа */
+.timeline-wrapper:last-child {
+  margin-bottom: 0;
+}
+/* стили для элементов таймлайна */
+.timeline-item {
+  position: relative;
+  background-color:#28a745;
+  color: #fff;
+  padding: .825rem;
+  border-radius: .25rem;
+}
+/* добавление контрольных точек на вертикальную линию */
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  width: .75rem;
+  height: .75rem;
+  background-color: #28a745;
+  border-radius: .4rem;
+  left: -2.3125rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+/* добавление стрелочек к элементам таймлайна */
+.timeline-item::after {
+  content: "";	
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-top: 1rem solid transparent;
+  border-bottom: 1rem solid transparent;
+  border-right: 1rem solid #28a745;
+  left: -1rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+/* стили для блока, в котором будет отображаться название статьи */
+.timeline-item-header {
+  display: block;
+  font-weight: bold;
+  font-size: 1.125rem;
+}
+/* оформление блока, содержащего название раздела */
+.timeline-item-section {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: rgba(255,255,255,.4);
+  padding: .3rem;
+  font-size: .875rem;
+  border-top-right-radius: .25rem;
+}
+/* оформление блока, содержащего дату */
+.timeline-item-date {
+  display: block;
+  font-size: .75rem;
+  line-height: 2;
+  color: rgba(255,255,255,.8);
+}
+/* стили для блока, в который будет выводиться описание статьи */
+.timeline-item-description {
+  display: block;
+  font-size: .875rem;
+  color: rgba(255,255,255,.8);
+  line-height: 1.7;
+}
+/* стили для блока, содержащего ссылку "Перейти" */
+.timeline-item-link {
+  display: block;
+  font-size: .875rem;
+  line-height: 1.7;
+  text-align: right;
+}
+/* стили для ссылки "Перейти" */
+.timeline-item-link a {
+  text-decoration: none;
+  color: rgba(255,255,255,1);
+  border-bottom: 1px dashed rgba(255,255,255,1);
+}
+/* стили для ссылки "Перейти" при поднесении к ней курсора или когда она находится в состоянии фокуса */
+.timeline-item-link a:hover, .timeline-item-link a:focus {
+  color: rgba(255,255,255,.8);
+  border-bottom: 1px dashed rgba(255,255,255,.8);
+}
+/* для адаптивности (стили для больших экранов) */
+@media (min-width: 576px) {
+  /* для вывода вертикальной линии по центру */
+  .timeline::before {
+    left: 50%;
+  }
+  /* стили для нечётных элементов с классом timeline-wrapper */
+  .timeline-wrapper:nth-child(odd) {
+    padding-right: 2rem;
+    padding-left: 15px;
+  }
+  /* стили для чётных элементов с классом timeline-wrapper */
+  .timeline-wrapper:nth-child(even) {
+    padding-left: 2rem;
+    margin-left: 50%;
+    margin-top: -2rem;
+  }
+  /* дополнительный сдвиг вверх для нечетных элементов (начиная с 3) */
+  .timeline-wrapper:nth-child {
+    margin-top: -2rem;
+  }
+  /* стили для псевдоэлементов ::before элементов таймлайна, расположенных в нечётных контейнерах */  
+  .timeline-wrapper:nth-child(odd) .timeline-item::before {
+    right: -2.5rem;
+    left: unset;
+  }
+  /* стили для псевдоэлементов ::after элементов таймлайна, расположенных в нечётных контейнерах */
+  .timeline-wrapper:nth-child(odd) .timeline-item::after {
+    border-left: 1rem solid #28a745;
+    border-right: none;
+    left: unset;
+    right: -1rem;
+  }
+}
+.breadcrumb {
+	background-color: #3af30c;
+    list-style: none; display: flex; padding-left: 0px; } 
+.breadcrumb-item>a, .breadcrumb-item.active { color: #fff; display: block; background: #7b1fa2; text-decoration: none; position: relative; height: 34px; line-height: 34px; padding: 0 10px 0 5px; text-align: center; margin-right: 23px; user-select: none; }
+ .breadcrumb-item:first-child>a { padding-left: 15px; border-top-left-radius: 4px; border-bottom-left-radius: 4px; }
+ .breadcrumb-item:last-child>a, .breadcrumb-item.active { border-top-right-radius: 4px; border-bottom-right-radius: 4px; margin-right: 0; padding-right: 15px; }
+.breadcrumb-item:first-child>a::before, .breadcrumb-item:last-child>a::after { border: none; } 
+.breadcrumb-item>a::before, .breadcrumb-item>a::after, .breadcrumb-item.active::before { content: ""; position: absolute; top: 0; border: 0 solid #7b1fa2; border-width: 17px 10px; width: 0; height: 0; } 
+.breadcrumb-item>a::before, .breadcrumb-item.active::before { left: -20px; border-left-color: transparent; } 
+.breadcrumb-item>a::after { left: 100%; border-color: transparent; border-left-color: #7b1fa2; }
+.breadcrumb-item>a:hover { background-color: #6a1b9a; }
+.breadcrumb-item>a:hover::before { border-color: #6a1b9a; border-left-color: transparent; } 
+.breadcrumb-item>a:hover::after { border-left-color: #6a1b9a; } 
+.breadcrumb-item.active { color: #6a1b9a; background-color: #f3e5f5; } 
+.breadcrumb-item.active::before { border-color: #f3e5f5; border-left-color: transparent; }
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,16 @@
+<html>
+<head>
+    <title>{{ title }}</title>
+</head>
+<body>
+<p><a href="{% url 'home' %}">Bosh sahifa</a></p>
+<p><a href="{% url 'home' %}">test sayti</a></p>
+<p><a href="{% url 'registr' %}">Registr</a></p>
+<br>
+<br>
+{% for item in ekologiya %}
+<p>{{ item.okpo }} - {{ item.soato }} -{{ item.name }} -{{ item.biznes }}</p>
+<hr>
+{% endfor %}
+</body>
+</html>

@@ -1,0 +1,30 @@
+{% load static %}
+{% load i18n %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+	<meta charset="UTF-8">
+	<link rel="shortcut icon" type="image/x-icon" href="{% static 'logo.ico' %}">
+	<script type="text/javascript" src="{% static 'js/jquery.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/menu.js' %}"></script>
+	<title>{% block title %} Sarlavha {% endblock %}</title>
+</head>
+<body background="white" class=" bg-white">
+	<div class="container">
+		<div class="row">{% block header %} {% include 'project/blocks/header.html' %} {% endblock %}</div>
+			{% block menyu %} {% include 'project/blocks/menyu.html' %} {% endblock %}
+			<div class="row">
+			{% block left %} {% include 'project/blocks/left.html' %} {% endblock %}
+				<div class="col-6" >{% block content %} CONTENT {% endblock %}</div>
+			{% block right %} {% include 'project/blocks/right.html' %} {% endblock %}
+			</div>
+		<div class="row">{% block footer %} {% include 'project/blocks/footer.html' %} {% endblock %}</div>
+	</div>
+	 <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+
+
+</body>
+</html>

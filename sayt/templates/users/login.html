@@ -1,0 +1,37 @@
+{% extends 'sayt/ekologiya.html' %}
+{% block title %} {{ title }} {% endblock %}
+{% block header %} {% include 'sayt/blocks/header.html' %} {% endblock %}
+{% block menyu %} {% include 'sayt/blocks/menyu.html' %} {% endblock %}
+{% block left %} {% include 'sayt/blocks/left.html' %} {% endblock %}
+{% block content %}
+
+<form class="mt-5" action="{% url 'login' %}" method="POST">
+    {% csrf_token %}
+    <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text bg-primary text-white" id="basic-addon1">Login</span>
+          </div>
+          <input name="username" type="text" class="form-control" placeholder="Loginni kiriting" aria-label="Username" aria-describedby="basic-addon1">
+    </div>
+    <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text bg-primary text-white" id="basic-addon1">Parol</span>
+          </div>
+          <input name="password" type="password" class="form-control" placeholder="Parolni kiriting" aria-label="Username" aria-describedby="basic-addon1">
+    </div>
+
+    <div class="form-group form-check">
+        <input type="checkbox" class="form-check-input" id="exampleCheck1" disabled>
+        <label class="form-check-label" for="exampleCheck1">Eslab qolish</label>
+    </div>
+    <button type="submit" class="btn btn-primary">Kirish</button>
+
+</form>
+
+        <a class="nav-link" href="{% url 'register' %}"><button type="submit" class="btn btn-success">Registratsiya</button></a>
+
+
+
+{% endblock %}
+{% block right %} {% include 'sayt/blocks/right.html' %} {% endblock %}
+{% block footer %} {% include 'sayt/blocks/footer.html' %} {% endblock %}
