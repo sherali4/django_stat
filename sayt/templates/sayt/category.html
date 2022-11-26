@@ -1,4 +1,5 @@
 {% extends 'sayt/ekologiya.html' %}
+{% load static %}
 {% block title %} {{ title }} {% endblock %}
 {% block header %} {% include 'sayt/blocks/header.html' %} {% endblock %}
 {% block menyu %} {% include 'sayt/blocks/menyu.html' %} {% endblock %}
@@ -11,7 +12,12 @@
 <div class="card-group">
     <div class="card mb-3">
         <div class="card-header bg-primary text-white">Kategoriyasi: {{ item.category }}</div>
-    <img src="{{ item.photo.url }}" class="img-fluid card-img-top img-thumbnail rounded float-left" alt="..." width="150px" height="150px" class="mr-3">
+        {% if item.photo.url is null %}
+        <img src="{{ item.photo.url }}" class="img-fluid card-img-top img-thumbnail rounded float-left" alt="..." width="150px" height="150px" class="mr-3">
+        {% else %}
+        <img src="{% static 'stat/noimg.jpg' %}" class="col-6 img-fluid card-img-top img-thumbnail rounded float-left" alt="..." width="150px" height="150px" class="mr-3">
+        {% endif %}
+
     <div class="card-body">
       <h5 class="card-title">{{ item.title }}</h5>
       <p class="card-text">
@@ -21,10 +27,10 @@
          <a href="{{ item.get_absolute_url }}" class="btn btn-primary">Read more...</a>
 
     </div>
-         <div class="card-footer bg-secondary text-white"><small class="text-white">Created at {{ item.created_at|date:"H:i d.m.Y" }}</small>
-  </div>
+         <div class="card-footer bg-secondary text-white"><small class="text-white">Created at {{ item.created_at|date:"H:i d.m.Y" }}</small></div>
     </div>
-    </div>
+</div>
+
     {% endfor %}
 
 

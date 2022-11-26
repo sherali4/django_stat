@@ -7,7 +7,6 @@
 {% block content %}
 
 <h1 class="text-center">{{title}}</h1>
-
    {% for item in news %}
 <div class="card-group">
     <div class="card mb-3">
@@ -26,17 +25,15 @@
         <div>
             <p>{{ item.content }}</p>
         </div>
-
-        <a href="{{ item.get_absolute_url }}" class="btn btn-primary">Read more...</a>
+        <a href="{{ item.get_absolute_url }}" class="btn btn-primary">to'liq o'qish...</a>
     </div>
-         <div class="card-footer bg-secondary text-white"><small class="text-white">Created at {{ item.created_at|date:"H:i d.m.Y" }}</small>
-  </div>
+         <div class="card-footer bg-secondary text-white"><small class="text-white">Created at {{ item.created_at|date:"H:i d.m.Y" }}</small></div>
     </div>
-    </div>
+</div>
     {% endfor %}
 
 
 
-bu kontent {% endblock %}
+{% endblock %}
 {% block right %} {% include 'sayt/blocks/right.html' %} {% endblock %}
 {% block footer %} {% include 'sayt/blocks/footer.html' %} {% endblock %}

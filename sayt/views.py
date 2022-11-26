@@ -12,8 +12,8 @@ def logout_user(request):
     messages.info(request,'Siz tizimdan chiqdingiz')
     return redirect('login')
 def register_user(request):
-    form=CustomUserCreationForm()
-    contex={
+    form = CustomUserCreationForm()
+    contex = {
         'form': form
     }
     if request.method == 'POST':
@@ -65,7 +65,7 @@ def index(request):
 @login_required(login_url='login')
 def news(request):
     news = News.objects.all().order_by('-created_at')
-    context={
+    context = {
         'news': news,
         'title': 'Asosiy sahifa',
         'menyu': menyu
@@ -87,7 +87,7 @@ def get_category(request, category_id):
     news = News.objects.filter(category_id=category_id)
     categories = Category.objects.all()
     categorys = Category.objects.get(pk=category_id)
-    title= categorys.title  + '- tarmog\'i yangiliklari sahifasi'
+    title = categorys.title + " - yangiliklari sahifasi"
     context = {
         'news': news,
         'categories': categories,

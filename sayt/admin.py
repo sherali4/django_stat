@@ -4,7 +4,7 @@ from .models import Ekologiya, Category, Menyu, Katalog, News
 
 
 class EkoAdmin(admin.ModelAdmin):
-    list_display = ('id','title','category','created_at','updated_at','is_published')
+    list_display = ('id','title', 'category', 'created_at', 'updated_at', 'is_published')
     list_display_links = ('id', 'title')
     search_fields = ('title', 'content',)
     list_editable = ('is_published',)
@@ -21,15 +21,15 @@ class MenyuAdmin(admin.ModelAdmin):
 
 
 class KatalogAdmin(admin.ModelAdmin):
-    list_display = ('okpo','soato','name','biznes')
+    list_display = ('okpo','soato', 'name','biznes')
     list_display_links = ('okpo',)
-    search_fields = ('okpo','name',)
+    search_fields = ('okpo', 'name',)
     list_editable = ('biznes',)
     list_select_related = True
 
 class NewsAdmin(admin.ModelAdmin):
     list_display = ('title', 'category', 'content', 'is_published',)
-    search_fields = ('title','content',)
+    search_fields = ('title', 'content',)
     list_select_related = True
     list_editable = ('is_published', 'category',)
     list_filter = ('is_published', 'category')
