@@ -1,6 +1,10 @@
+
 <nav aria-label="Page navigation" class="justify-content-center">
   <ul class="pagination pagination-md text-center justify-content-center">
+
+
       {% for page in paginator.page_range %}
+
       {% if page == news.number %}
     <li class="page-item active" aria-current="page">
         <span class="page-link">{{page}}</span>

@@ -67,23 +67,26 @@ def index(request):
 def news(request):
     newsa = News.objects.all().order_by('-created_at')
     page = request.GET.get('page')
-    num_of_items = 3
+    num_of_items = 5
     paginator = Paginator(newsa, num_of_items)
+
     try:
         newsa = paginator.page(page)
+
     except PageNotAnInteger:
         page = 1
         newsa = paginator.page(page)
     except EmptyPage:
         page = paginator.num_pages
         newsa = paginator.page(page)
-        pagen = 'paginator.page_range'
+
 
     context = {
         'news': newsa,
         'title': 'Asosiy sahifa',
         'menyu': menyu,
         'paginator': paginator,
+
 
 
     }

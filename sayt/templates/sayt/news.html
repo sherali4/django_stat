@@ -1,20 +1,21 @@
 {% extends 'sayt/ekologiya.html' %}
 {% block title %} {{ title }} {% endblock %}
 {% load static %}
+
+
 {% block header %} {% include 'sayt/blocks/header.html' %} {% endblock %}
 {% block menyu %} {% include 'sayt/blocks/menyu.html' %} {% endblock %}
 {% block left %} {% include 'inc/_sidebar.html' %} {% endblock %}
 {% block content %}
 
 <h1 class="text-center">{{title}}</h1>
+
 {% include 'sayt/blocks/components/pagination.html' %}
 
-
-
-
-
-
 {% for item in news %}
+
+
+
 <div class="card-group">
     <div class="card mb-3">
         <div class="card-header bg-primary text-white"><sher class="text-secondary">Yangilik turi: </sher> {{ item.category }}</div>
@@ -38,6 +39,11 @@
     </div>
 </div>
     {% endfor %}
+
+
+
+
+
 
 {% include 'sayt/blocks/components/pagination.html' %}
 {% endblock %}
