@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     "sayt.apps.SaytConfig",
     "testapp.apps.TestappConfig",
     "mptt",
+    "gunicorn",
 
 ]
 
