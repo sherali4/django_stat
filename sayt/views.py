@@ -4,8 +4,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from .forms import CustomUserCreationForm, NewsForm
-from django.views.generic import ListView, DetailView
-from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 
 menyu = Menyu.objects.all()
 
@@ -66,11 +65,25 @@ def index(request):
 
 @login_required(login_url='login')
 def news(request):
-    news = News.objects.all().order_by('-created_at')
+    newsa = News.objects.all().order_by('-created_at')
+    page = request.GET.get('page')
+    num_of_items = 3
+    paginator = Paginator(newsa, num_of_items)
+    try:
+        newsa = paginator.page(page)
+    except PageNotAnInteger:
+        page = 1
+        newsa = paginator.page(page)
+    except EmptyPage:
+        page = paginator.num_pages
+        newsa = paginator.page(page)
+
     context = {
-        'news': news,
+        'news': newsa,
         'title': 'Asosiy sahifa',
-        'menyu': menyu
+        'menyu': menyu,
+        'paginator': paginator,
+
     }
     return render(request, 'sayt/news.html', context=context)
 

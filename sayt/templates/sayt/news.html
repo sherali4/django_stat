@@ -31,6 +31,21 @@
     </div>
 </div>
     {% endfor %}
+
+<nav aria-label="Page navigation">
+  <ul class="pagination pagination-md text-center">
+      {% for page in paginator.page_range %}
+      {% if page == news.number %}
+    <li class="page-item active" aria-current="page">
+        <span class="page-link">{{page}}</span>
+    </li>
+      {% else %}
+    <li class="page-item"><a class="page-link" href=" ?page={{page}}">{{page}}</a></li>
+      {% endif %}
+      {% endfor %}
+
+  </ul>
+</nav>
 {% endblock %}
 {% block right %} {% include 'sayt/blocks/right.html' %} {% endblock %}
 {% block footer %} {% include 'sayt/blocks/footer.html' %} {% endblock %}
