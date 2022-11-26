@@ -77,12 +77,14 @@ def news(request):
     except EmptyPage:
         page = paginator.num_pages
         newsa = paginator.page(page)
+        pagen = 'paginator.page_range'
 
     context = {
         'news': newsa,
         'title': 'Asosiy sahifa',
         'menyu': menyu,
         'paginator': paginator,
+
 
     }
     return render(request, 'sayt/news.html', context=context)

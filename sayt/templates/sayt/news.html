@@ -3,11 +3,18 @@
 {% load static %}
 {% block header %} {% include 'sayt/blocks/header.html' %} {% endblock %}
 {% block menyu %} {% include 'sayt/blocks/menyu.html' %} {% endblock %}
-{% block left %} {% include 'inc/_sidebar.html  ' %} {% endblock %}
+{% block left %} {% include 'inc/_sidebar.html' %} {% endblock %}
 {% block content %}
 
 <h1 class="text-center">{{title}}</h1>
-   {% for item in news %}
+{% include 'sayt/blocks/components/pagination.html' %}
+
+
+
+
+
+
+{% for item in news %}
 <div class="card-group">
     <div class="card mb-3">
         <div class="card-header bg-primary text-white"><sher class="text-secondary">Yangilik turi: </sher> {{ item.category }}</div>
@@ -32,20 +39,7 @@
 </div>
     {% endfor %}
 
-<nav aria-label="Page navigation">
-  <ul class="pagination pagination-md text-center">
-      {% for page in paginator.page_range %}
-      {% if page == news.number %}
-    <li class="page-item active" aria-current="page">
-        <span class="page-link">{{page}}</span>
-    </li>
-      {% else %}
-    <li class="page-item"><a class="page-link" href=" ?page={{page}}">{{page}}</a></li>
-      {% endif %}
-      {% endfor %}
-
-  </ul>
-</nav>
+{% include 'sayt/blocks/components/pagination.html' %}
 {% endblock %}
 {% block right %} {% include 'sayt/blocks/right.html' %} {% endblock %}
 {% block footer %} {% include 'sayt/blocks/footer.html' %} {% endblock %}
