@@ -9,5 +9,5 @@ def get_categories():
     return Category.objects.all()
 @register.inclusion_tag('sayt/list_categories.html')
 def show_categories():
-    categoriesa= Category.objects.all()
+    categoriesa = Category.objects.all()
     return { "categoriesa": categoriesa }

@@ -1,7 +1,7 @@
 {% load news_tags %}
 {% get_list_categories as category %}
 {% comment %}
-
+<div class="col-3">
 				<div class="list-group align-top shadow-lg mb-3 mt-3 bg-white rounded">
 					<a href="{% url 'news' %}" class="list-group-item list-group-item-action active font-weight-bold text-center">Yangiliklar</a>
 					{% for item in category %}
@@ -9,6 +9,9 @@
 					{% endfor %}
 				</div>
 
-
+</div>
 {% endcomment %}
+
+<div class="col-3">
 {% show_categories %}
+</div>

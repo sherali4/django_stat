@@ -1,6 +1,6 @@
 {% extends 'sayt/ekologiya.html' %}
 {% load static %}
-{% block title %} {{ news_item.title }} :: {{ block.Super }} {% endblock %}
+{% block title %} {{ news_item.title }} :: {{ block.super }} {% endblock %}
 {% block header %} {% include 'sayt/blocks/header.html' %} {% endblock %}
 {% block menyu %} {% include 'sayt/blocks/menyu.html' %} {% endblock %}
 {% block left %} {%comment%} {% include 'sayt/blocks/left.html' %}{%endcomment%}{% include 'inc/_sidebar.html' %} {% endblock %}
@@ -10,13 +10,21 @@
 
     <div class="card-group">
 
+        <div class="media col-6">
+            {% if item.photo %}
+            <img src="{{ item.photo.url }}" class="img-fluid card-img-top img-thumbnail rounded float-left" alt="{{ item.title }}">
+            {% else %}
+            <img src="{% static 'stat/noimg.jpg' %}" class="img-fluid card-img-top img-thumbnail rounded float-left" alt="..." width="150px">
+            {% endif %}
+        </div>
+
 
         <div class="card mb-3">
             <div class="card-header bg-primary text-white">Kategoriyasi: {{ news_item.category }}</div>
-        {% if news_item.photo %}
-        <img src="{{ news_item.photo.url }}" class="img-fluid card-img-top img-thumbnail rounded float-left" alt="..." width="150px" height="150px">
+        {% if news_item.photo.url %}
+        <img src="{{ news_item.photo.url }}" class="img-fluid card-img-top img-thumbnail rounded float-left" alt="..." width="150px" height="150px" class="mr-3">
         {% else %}
-        <img src="{% static 'stat/noimg.jpg' %}" class="img-fluid card-img-top img-thumbnail rounded float-left" alt="..." width="150px">
+        <img src="{% static 'stat/noimg.jpg' %}" class="img-fluid card-img-top img-thumbnail rounded float-left" alt="..." width="150px" height="150px" class="mr-3">
         {% endif %}
         <div class="card-body">
           <h5 class="card-title">{{ news_item.title }}</h5>

@@ -1,8 +1,9 @@
 {% extends 'sayt/ekologiya.html' %}
 {% block title %} {{ news_item.title }} :: {{ block.super }} {% endblock %}
+{% load static %}
 {% block header %} {% include 'sayt/blocks/header.html' %} {% endblock %}
 {% block menyu %} {% include 'sayt/blocks/menyu.html' %} {% endblock %}
-{% block left %} {%comment%} {% include 'sayt/blocks/left.html' %}{%endcomment%}{% include 'inc/_sidebar.html' %} {% endblock %}
+{% block left %} {% include 'inc/_sidebar.html' %} {% endblock %}
 {% block content %}
 
 <h1 class="text-center">Yangilik kiritish</h1>
